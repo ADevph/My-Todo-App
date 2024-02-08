@@ -42,7 +42,7 @@ const DisplayTodos = ({
     const parsePercentage = parseFloat(completedTask());
 
     if (parsePercentage === 0) {
-      return "No tasks completed :'( ";
+      return "[ No tasks completed yet! :'(  ]";
     } else if (parsePercentage === 100) {
       return "Yay! All tasks completed ";
     } else if (parsePercentage >= 50) {
@@ -56,7 +56,7 @@ const DisplayTodos = ({
     <>
       {data.length ? (
         <div>
-          <div className="max-md:container border text-white max-w-[700px] mt-10 max-sm:mt-2 m-auto rounded-3xl bg-gradient-to-r from-sky-500 to-sky-700 p-10 max-sm:p-5">
+          <div className="max-md:container border text-white max-w-[700px] max-sm:mt-2 m-auto rounded-3xl bg-gradient-to-r from-sky-500 to-sky-700 p-10 max-sm:p-5">
             <h1 className=" text-2xl max-sm:text-base font-medium">
               Progress summery
             </h1>
@@ -66,7 +66,7 @@ const DisplayTodos = ({
               <div className="flex justify-between items-center">
                 <p className=" max-sm:text-xs">
                   Progress
-                  <span className={` text-sm max-sm:text-xs ${handleTasksStatus() === "No tasks completed" ? "text-red-700" : handleTasksStatus() === "Less than half tasks completed" ? "text-red-700" : "text-green-500"} font-semibold`}> ({handleTasksStatus()})</span>
+                  <span className={` text-sm max-sm:text-xs ${handleTasksStatus() === "No tasks completed" ? "text-red-700" : handleTasksStatus() === "Less than half tasks completed" ? "text-red-700" : "text-cyan-800"} font-semibold`}> ({handleTasksStatus()})</span>
                 </p>
                 <p className="text-sm">{completedTask()}%</p>
               </div>

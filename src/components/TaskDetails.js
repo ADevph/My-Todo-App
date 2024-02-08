@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import TopNav from "../Utils/TopNav";
 import PageNotFound from "./PageNotFound";
 
 const TaskDetails = () => {
@@ -17,7 +16,6 @@ const TaskDetails = () => {
     <div className=" w-full relative min-h-screen bg-purple-600">
       <div className=" max-w-[1300px] px-10 max-md:px-5 m-auto">
         <div>
-          <TopNav title={"Task Details"} />
 
           <div className=" rounded-2xl bg-purple-700 max-w-[600px] m-auto mt-16 py-10 px-8 max-sm:p-5 text-white">
             <h1 className=" text-center text-4xl max-sm:text-2xl font-bold">
@@ -63,7 +61,7 @@ const TaskDetails = () => {
 
               <div className="max-sm:text-base font-semibold flex gap-4 items-center pt-4 pb-3">
                 <h2 className="text-left text-lg max-sm:text-sm min-w-28">
-                  Catagory:
+                 Priority:
                 </h2>
 
                 <div className="flex flex-wrap gap-3 max-sm:gap-2">

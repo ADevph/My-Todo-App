@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
-import TopNav from "../Utils/TopNav";
 import { useNavigate } from "react-router-dom";
 import DataContext from "../context/DataContext";
 import { IoIosArrowDown } from "react-icons/io";
@@ -178,10 +177,9 @@ const EditTodo = () => {
   };
 
   return (
-    <div className=" w-full relative min-h-screen bg-purple-600">
+    <div className=" w-full relative min-h-screen bg-blue-600">
       <div className=" max-w-[1300px] px-10 max-md:px-5 m-auto">
         <div>
-          <TopNav title={"Edit Todo"} />
 
           <div className="mt-10">
             <form className="max-w-[600px] m-auto">
@@ -249,7 +247,7 @@ const EditTodo = () => {
                           className=" bg-purple-500 text-white text-sm max-sm:text-xs flex items-center gap-1 px-3 py-2 max-sm:py-2 font-medium rounded-lg"
                         >
                           <span className=" text-xl max-sm:text-sm">
-                            {val.color}
+                            {/* {val.color} */}
                           </span>
                           {val.catagory}
                         </div>

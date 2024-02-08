@@ -1,5 +1,4 @@
 import React, { useContext} from "react";
-// import Greeting from "../Utils/Greeting";
 import DisplayTodos from "../Utils/DisplayTodos";
 import { RxPlus } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +28,6 @@ const Home = () => {
 <div className="w-full relative min-h-screen pb-60 bg-gradient-to-r from-blue-700 to-blue-500">
       <div className=" max-w-[1300px] px-3 m-auto">
         <div>
-          {/* <Greeting /> */}
           <DisplayTodos
             data={data}
             setData={setData}

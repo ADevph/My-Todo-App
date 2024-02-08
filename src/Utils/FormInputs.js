@@ -61,7 +61,6 @@ const FormInputs = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create a new Date object
     const now = new Date();
 
     const date = now.getDate();
@@ -70,16 +69,16 @@ const FormInputs = ({
 
     const year = now.getFullYear();
 
-    // Get the hours (in 24-hour format)
+    // ( 24-hour format)
     let hours = now.getHours();
 
-    // Determine whether it's AM or PM
+    //  AM or PM
     const amOrPm = hours >= 12 ? "PM" : "AM";
 
-    // Convert hours to 12-hour format
+    // hours to 12-hour format
     hours = (hours % 12 || 12).toString().padStart(2, "0");
 
-    // Get the minutes
+    // minutes
     const minutes = now.getMinutes().toString().padStart(2, "0");
 
     const id = uuidv4();
@@ -145,27 +144,6 @@ const FormInputs = ({
       }
     }
 
-    // const isCategorySelected = selectedCatagory.includes(catagory);
-
-    // if (isCategorySelected) {
-    //   const updatedCategories = selectedCatagory.filter(
-    //     (val) => val !== catagory
-    //   );
-    //   setSelectedCatagory(updatedCategories);
-    //   console.log(updatedCategories);
-    // } else {
-    //   if (selectedCatagory.length < 3) {
-    //     setMaxSelectedError(false);
-    //     setSelectedCatagory([...selectedCatagory, catagory]);
-    //   } else {
-    //     setMaxSelectedError(true);
-    //     setTimeout(() => {
-    //       setMaxSelectedError(false);
-    //     }, 4000);
-    //     const updatedCategories = [...selectedCatagory];
-    //     setSelectedCatagory(updatedCategories);
-    //   }
-    // }
   };
 
   const catagoryRef = useRef();
@@ -233,7 +211,7 @@ const FormInputs = ({
         </div>
 
         <div ref={catagoryRef} className=" mt-7 max-sm:mt-4">
-          <label className="text-sm max-sm:text-xs text-purple-200">Category</label>
+          <label className="text-sm max-sm:text-xs text-purple-200">Priority</label>
 
           <div
             onClick={() => setCategoryOpen(!CategoryOpen)}
@@ -304,7 +282,6 @@ const FormInputs = ({
         <div className=" max-sm:w-[320px] px-3 py-2 max-sm:px-2 max-sm:py-1 rounded-md bg-white border-l-[5px] flex items-center gap-2 border-red-600 fixed bottom-8 left-[50%] -translate-x-[50%]">
           <IoIosCloseCircle className=" text-3xl max-sm:text-2xl text-red-500" />{" "}
           <h2 className=" max-md:text-xs text-sm text-slate-600 font-semibold">
-            You cannot add more than 3 catagories
           </h2>
         </div>
       )}
