@@ -60,7 +60,7 @@ const DisplayTodos = ({
             <h1 className=" text-2xl max-sm:text-base font-medium">
               Progress summery
             </h1>
-            <h3 className=" max-sm:text-xs">{`${data.length} ${data.length > 1 ? "Tasks" : "Task"}`}</h3>
+            <h3 className=" max-sm:text-xs"> Total Task : {`${data.length} ${data.length > 1 ? "Tasks" : "Task"}`}</h3>
 
             <div className="flex flex-col w-[60%] max-sm:w-[100%] mt-7 max-sm:mt-5">
               <div className="flex justify-between items-center">

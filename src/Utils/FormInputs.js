@@ -49,9 +49,9 @@ const FormInputs = ({
     let description = e.target.value;
     setTaskDescription(e.target.value);
 
-    if (description.length > 250) {
+    if (description.length > 150) {
       setDescriptionCountError(
-        "Description should be less than or equal to 200 characters"
+        "Description should be less than or equal to 150 characters"
       );
     } else {
       setDescriptionCountError("");
