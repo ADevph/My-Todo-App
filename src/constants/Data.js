@@ -1,7 +1,5 @@
-
 export const catagory = [
-    { id: 1, catagory: "Low" },
-    { id: 2, catagory: "Medium" },
-    { id: 3, catagory: "High" },
-  
-  ];
+  { id: 1, catagory: "Low", color: "green" },
+  { id: 2, catagory: "Medium", color: "yellow" },
+  { id: 3, catagory: "High", color: "red" },
+];

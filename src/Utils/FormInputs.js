@@ -245,7 +245,7 @@ const FormInputs = ({
                   key={index}
                   className=" bg-purple-500 text-white text-sm max-sm:text-xs flex items-center gap-1 px-3 py-2 max-sm:py-2 font-medium rounded-lg"
                 >
-                  <span className=" text-xl max-sm:text-sm">{val.emoji}</span>{" "}
+                  <span className=" text-xl max-sm:text-sm">{val.color}</span>{" "}
                   {val.catagory}
                 </div>
               ))}
