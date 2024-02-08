@@ -13,16 +13,16 @@ const TaskDetails = () => {
   }
 
   return (
-    <div className=" w-full relative min-h-screen bg-purple-600">
-      <div className=" max-w-[1300px] px-10 max-md:px-5 m-auto">
+    <div className=" w-full relative min-h-screen bg-purple-600 mt-0">
+      <div className=" max-w-[1300px] px-10 max-md:px-5 items-center justify-center">
         <div>
 
-          <div className=" rounded-2xl bg-purple-700 max-w-[600px] m-auto mt-16 py-10 px-8 max-sm:p-5 text-white">
+          <div className=" rounded-2xl bg-purple-700 max-w-[600px] justify-center items-center m-auto py-10 px-8 max-sm:p-5 text-white ">
             <h1 className=" text-center text-4xl max-sm:text-2xl font-bold">
               Task
             </h1>
 
-            <div className=" mt-8">
+            <div className=" mt-0">
               <div className="max-sm:text-base font-semibold flex gap-4 items-center border-b pt-4 pb-3">
                 <h2 className="text-left text-lg max-sm:text-sm min-w-28">
                   Task Name:

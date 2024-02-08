@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import Todo from "./Todo";
+import { catagory } from "../constants/Data";
 
 const DisplayTodos = ({
   data,
@@ -13,6 +14,8 @@ const DisplayTodos = ({
 
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+
+  const [filterCategory, setFilterCategory] = useState("All");
 
   const completedTask = () => {
     const completed = data.filter((val) => val.check);
@@ -29,14 +32,26 @@ const DisplayTodos = ({
     setSearch(e.target.value);
   };
 
+  const handleFilterChange = (e) => {
+    setFilterCategory(e.target.value);
+  };
+
   useEffect(() => {
     const filterResults = data.filter(
       (val) =>
         val.title.toLowerCase().includes(search.toLowerCase()) ||
         val.description.toLowerCase().includes(search.toLowerCase())
     );
-    setSearchResults(filterResults);
-  }, [data, search]);
+
+    if (filterCategory !== "All") {
+      const filteredByCategory = filterResults.filter(
+        (task) => task.catagory.catagory === filterCategory
+      );
+      setSearchResults(filteredByCategory);
+    } else {
+      setSearchResults(filterResults);
+    }
+  }, [data, search, filterCategory]);
 
   const handleTasksStatus = () => {
     const parsePercentage = parseFloat(completedTask());
@@ -91,6 +106,25 @@ const DisplayTodos = ({
             <IoMdSearch className="absolute top-[50%] left-3 -translate-y-[50%] text-sky-600 text-2xl max-sm:text-xl" />
           </div>
 
+
+
+          <div className="max-md:container max-w-[700px] m-auto mt-7 max-sm:mt-5 mb-7 max-sm:mb-5 relative">
+            <select
+              value={filterCategory}
+              onChange={handleFilterChange}
+              className="w-full h-14 max-sm:h-12 rounded-xl pl-4 pr-10 outline-none"
+            >
+              <option value="All">All Categories</option>
+              {catagory.map((category) => (
+                <option key={category.id} value={category.catagory}>
+                  {category.catagory}
+                </option>
+              ))}
+            </select>
+          </div>
+
+
+          {/* Display filtered tasks */}
           <div className="max-md:container max-w-[700px] m-auto flex flex-col gap-4 max-sm:gap-3 pb-5">
             {searchResults.map((val, index) => (
               <Todo

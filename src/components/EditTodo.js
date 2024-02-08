@@ -177,10 +177,10 @@ const EditTodo = () => {
   };
 
   return (
-    <div className=" w-full relative min-h-screen bg-blue-600">
+    <div className=" w-full relative min-h-screen bg-purple-600">
       <div className=" max-w-[1300px] px-10 max-md:px-5 m-auto">
         <div>
-
+<h1 className="text-center font-bold text-2xl text-white">Edit Todo</h1>
           <div className="mt-10">
             <form className="max-w-[600px] m-auto">
               <div>
@@ -247,7 +247,7 @@ const EditTodo = () => {
                           className=" bg-purple-500 text-white text-sm max-sm:text-xs flex items-center gap-1 px-3 py-2 max-sm:py-2 font-medium rounded-lg"
                         >
                           <span className=" text-xl max-sm:text-sm">
-                            {/* {val.color} */}
+                            {val.emoji}
                           </span>
                           {val.catagory}
                         </div>
