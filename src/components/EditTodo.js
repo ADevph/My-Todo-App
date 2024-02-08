@@ -35,6 +35,10 @@ const EditTodo = () => {
     }
   };
 
+  const handleClick = () => {
+    navigate("/");
+  };
+
   const handleEditTitle = (e) => {
     let title = e.target.value;
     setEdit({
@@ -180,7 +184,9 @@ const EditTodo = () => {
     <div className=" w-full relative min-h-screen bg-purple-600">
       <div className=" max-w-[1300px] px-10 max-md:px-5 m-auto">
         <div>
-<h1 className="text-center font-bold text-2xl text-white">Edit Todo</h1>
+          <h1 className="text-center font-bold text-2xl text-white">
+            Edit Todo
+          </h1>
           <div className="mt-10">
             <form className="max-w-[600px] m-auto">
               <div>
@@ -303,6 +309,15 @@ const EditTodo = () => {
                   Update
                 </button>
               </div>
+
+
+              <button
+      type="button"
+      className={`transition text-xl font-bold bg-purple-400 p-3 text-white mt-4 max-sm:p-3 max-sm:text-lg rounded-xl w-full`}
+      onClick={handleClick}
+    >
+      Go Back
+    </button>
             </form>
 
             {emptyInputError && (

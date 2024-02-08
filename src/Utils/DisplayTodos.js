@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import Todo from "./Todo";
-import { catagory } from "../constants/Data";
 
 const DisplayTodos = ({
   data,
@@ -14,8 +13,6 @@ const DisplayTodos = ({
 
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
-  const [filterCategory, setFilterCategory] = useState("All");
 
   const completedTask = () => {
     const completed = data.filter((val) => val.check);
@@ -32,34 +29,22 @@ const DisplayTodos = ({
     setSearch(e.target.value);
   };
 
-  const handleFilterChange = (e) => {
-    setFilterCategory(e.target.value);
-  };
-
   useEffect(() => {
     const filterResults = data.filter(
       (val) =>
         val.title.toLowerCase().includes(search.toLowerCase()) ||
         val.description.toLowerCase().includes(search.toLowerCase())
     );
-
-    if (filterCategory !== "All") {
-      const filteredByCategory = filterResults.filter(
-        (task) => task.catagory.catagory === filterCategory
-      );
-      setSearchResults(filteredByCategory);
-    } else {
-      setSearchResults(filterResults);
-    }
-  }, [data, search, filterCategory]);
+    setSearchResults(filterResults);
+  }, [data, search]);
 
   const handleTasksStatus = () => {
     const parsePercentage = parseFloat(completedTask());
 
     if (parsePercentage === 0) {
-      return "[ No tasks completed yet! :'(  ]";
+      return "[ No tasks completed :'( ] ";
     } else if (parsePercentage === 100) {
-      return "Yay! All tasks completed ";
+      return " Yay! All tasks completed";
     } else if (parsePercentage >= 50) {
       return "More than half tasks completed";
     } else {
@@ -71,22 +56,22 @@ const DisplayTodos = ({
     <>
       {data.length ? (
         <div>
-          <div className="max-md:container border text-white max-w-[700px] max-sm:mt-2 m-auto rounded-2xl bg-gradient-to-r from-sky-500 to-sky-600 p-10 max-sm:p-5">
+          <div className="max-md:container border text-white max-w-[700px] max-sm:mt-2 m-auto rounded-3xl bg-gradient-to-r from-blue-500 to-blue-800 p-10 max-sm:p-5">
             <h1 className=" text-2xl max-sm:text-base font-medium">
               Progress summery
             </h1>
-            <h3 className=" max-sm:text-xs"> Total Task : {`${data.length} ${data.length > 1 ? "Tasks" : "Task"}`}</h3>
+            <h3 className=" max-sm:text-xs">{`${data.length} ${data.length > 1 ? "Tasks" : "Task"}`}</h3>
 
             <div className="flex flex-col w-[60%] max-sm:w-[100%] mt-7 max-sm:mt-5">
               <div className="flex justify-between items-center">
                 <p className=" max-sm:text-xs">
                   Progress
-                  <span className={` text-sm max-sm:text-xs ${handleTasksStatus() === "No tasks completed" ? "text-red-700" : handleTasksStatus() === "Less than half tasks completed" ? "text-red-700" : "text-cyan-800"} font-semibold`}> ({handleTasksStatus()})</span>
+                  <span className={` text-sm max-sm:text-xs ${handleTasksStatus() === "No tasks completed" ? "text-red-700" : handleTasksStatus() === "Less than half tasks completed" ? "text-red-700" : "text-white-500"} font-semibold`}> ({handleTasksStatus()})</span>
                 </p>
                 <p className="text-sm">{completedTask()}%</p>
               </div>
 
-              <div className="  bg-blue-800 w-full h-2 mt-2 rounded-3xl">
+              <div className="  bg-blue-400 w-full h-2 mt-2 rounded-3xl">
                 <div
                   className="h-full rounded-3xl transition-all bg-purple-100"
                   style={{ width: `${completedTask()}%` }}
@@ -103,28 +88,9 @@ const DisplayTodos = ({
               onChange={handleSearch}
               className="w-full h-14 max-sm:h-12 rounded-xl pl-11 placeholder:text-sm outline-none"
             />
-            <IoMdSearch className="absolute top-[50%] left-3 -translate-y-[50%] text-sky-600 text-2xl max-sm:text-xl" />
+            <IoMdSearch className="absolute top-[50%] left-3 -translate-y-[50%] text-purple-600 text-2xl max-sm:text-xl" />
           </div>
 
-
-
-          <div className="max-md:container max-w-[700px] m-auto mt-7 max-sm:mt-5 mb-7 max-sm:mb-5 relative">
-            <select
-              value={filterCategory}
-              onChange={handleFilterChange}
-              className="w-full h-14 max-sm:h-12 rounded-xl pl-4 pr-10 outline-none"
-            >
-              <option value="All">All Categories</option>
-              {catagory.map((category) => (
-                <option key={category.id} value={category.catagory}>
-                  {category.catagory}
-                </option>
-              ))}
-            </select>
-          </div>
-
-
-          {/* Display filtered tasks */}
           <div className="max-md:container max-w-[700px] m-auto flex flex-col gap-4 max-sm:gap-3 pb-5">
             {searchResults.map((val, index) => (
               <Todo

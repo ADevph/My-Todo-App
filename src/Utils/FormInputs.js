@@ -29,6 +29,7 @@ const FormInputs = ({
   const [maxSelectedError, setMaxSelectedError] = useState(false);
 
   const navigate = useNavigate();
+ 
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {

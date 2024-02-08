@@ -79,7 +79,7 @@ const Todo = ({
               className="bg-sky-600 rounded-2xl text-sm max-sm:text-xs px-3 flex items-center font-medium gap-1 py-1 max-sm:py-0"
               key={index}
             >
-              <span className=" text-xl max-sm:text-lg">{c.emoji}</span> {c.catagory}
+              <span className=" text-xl max-sm:text-lg"></span> {c.catagory}
             </h4>
           ))}
         </div>
