@@ -35,6 +35,11 @@ const FormInputs = ({
       e.preventDefault();
     }
   };
+
+  const handleClick = () => {
+    navigate("/");
+  };
+
   const handleName = (e) => {
     let title = e.target.value;
     setTaskName(e.target.value);
@@ -266,7 +271,15 @@ const FormInputs = ({
           >
             Create Task
           </button>
+         
         </div>
+         <button
+      type="button"
+      className={`transition text-xl font-bold bg-purple-400 p-3 text-white mt-4 max-sm:p-3 max-sm:text-lg rounded-xl w-full`}
+      onClick={handleClick}
+    >
+      Go Back
+    </button>
       </form>
 
       {emptyInputError && (
