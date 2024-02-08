@@ -166,9 +166,10 @@ const FormInputs = ({
   });
 
   return (
-    <div className=" py-10">
+    <div className=" py-10 bg-purple-500 rounded-xl">
       <form onSubmit={handleSubmit} className="max-w-[600px] m-auto">
         <div>
+          <h1 className="items-center text-center justify-center font-bold text-white text-2xl">Add New Todo</h1>
           <label
             className={`text-sm max-sm:text-xs ${
               nameCountError ? "text-red-500" : "text-purple-200"
@@ -245,7 +246,7 @@ const FormInputs = ({
           {CategoryOpen ? (
             <div className="mt-3">
               <ul className=" p-2 bg-purple-400 flex flex-col gap-2 max-sm:gap-1 rounded-xl">
-                <li className=" my-2 px-3 text-white max-sm:text-sm">Select max (3 Categories)</li>
+                <li className=" my-2 px-3 text-white max-sm:text-sm">Select Priority</li>
                 {catagory.map((val, index) => (
                   <CatagoryBtn
                     key={index}
